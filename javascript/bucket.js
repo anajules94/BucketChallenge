@@ -9,7 +9,6 @@ function Bucket(){
 }
 
 Bucket.prototype.draw = function(){
-  console.log('pinto');
   ctx.fillStyle = '#F0E68C'; // Fill color of rectangle drawn
   ctx.fillRect(this.x, this.y, this.width, this.heigth);
 }
