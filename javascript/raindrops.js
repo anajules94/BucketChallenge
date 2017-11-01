@@ -1,20 +1,24 @@
-function RainDrops(x, vy, value){
+function RainDrops(x, vy, flag, bucketResult){
   this.x = x;
   this.y = 0;
   this.width = 40;
   this.height = 40;
   this.vy = vy;
-  this.value = value
   this.image = new Image();
-  this.image.src = './Gota.png'
+  this.image.src = './Gota.png';
+  if (flag) {
+    this.value = bucketResult;
+  } else {
+    this.value = this.getRandomValue();
+  }
 }
 
 RainDrops.prototype.draw = function (){
-    ctx.font = "10px Calibri";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
-    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-    ctx.fillText(this.value, this.x+22, this.y+29);
+    newGame.ctx.font = "10px Calibri";
+    newGame.ctx.fillStyle = "black";
+    newGame.ctx.textAlign = "center";
+    newGame.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    newGame.ctx.fillText(this.value, this.x+22, this.y+29);
 }
 
 RainDrops.prototype.drop = function (){
@@ -22,8 +26,12 @@ RainDrops.prototype.drop = function (){
 }
 
 RainDrops.prototype.collision = function(i) {
-  if (this.y >= canvas.height) {
-    this.y = canvas.height;
+  if (this.y >= newGame.canvas.height) {
+    this.y = newGame.canvas.height;
     return true
   }
+}
+
+RainDrops.prototype.getRandomValue = function() {
+  return Math.floor(Math.random()*100);
 }

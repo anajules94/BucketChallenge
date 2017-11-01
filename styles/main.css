@@ -1,5 +1,7 @@
 body {
-  background-color: white;
+  background: #92d3ed;
+  padding-top: 50px;
+
 }
 
 canvas {
@@ -8,4 +10,25 @@ canvas {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+h1 {
+  margin-left: 530px;
+}
+h2 {
+  font-family: sans-serif;
+}
+
+#keyInstruction {
+  margin-left: 500px;
+  padding-top: 10px;
+}
+
+.leftButton {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.rightButton {
+  margin-left: 50px;
+
 }

@@ -1,54 +1,77 @@
-var canvas = document.getElementById('game');
-ctx = canvas.getContext('2d')
+
 
 $(document).ready(function() {
 
-  var bucket = new Bucket();
-  bucket.draw();
+
+
+  // bucket.draw();
+
+  newGame = {
+    start: function() {
+      this.canvas = document.getElementById('game');
+      this.ctx = this.canvas.getContext('2d');
+      drawBackground();
+      this.bucket = new Bucket();
+      this.bucketResult = this.bucket.answer;
+      this.dropArray = [];
+      createDrops();
+      newGame.printScore();
+      this.requestAnimation = requestAnimationFrame(this.update);
+    },
+    update: function() {
+      clearCanvas();
+      drawBackground();
+      newGame.bucket.draw();
+      for (var i = 0; i < newGame.dropArray.length; i++) {
+        newGame.dropArray[i].drop();
+        newGame.dropArray[i].draw();
+        if(newGame.dropArray[i].collision(i) || newGame.bucket.collision(newGame.dropArray[i])){
+          newGame.dropArray.splice(i,1)
+        }
+      }
+      if(newGame.dropArray.length == 0) {
+        cancelAnimationFrame(newGame.requestAnimation);
+        newGame.start();
+      } else {
+        newGame.requestAnimation = requestAnimationFrame(newGame.update);
+      }
+    },
+    score: 0,
+    printScore: function() {
+      document.getElementById('score').innerHTML = newGame.score
+    }
+  }
 
   window.onkeydown = function(event) {
     var keyPr = event.keyCode;
     if (keyPr === 39) {
-      bucket.moveRigth();
+      newGame.bucket.moveRigth();
     } else if (keyPr === 37) {
-      bucket.moveLeft();
+      newGame.bucket.moveLeft();
     }
   };
 
-  var bucket;
-  var dropArray = [];
-
-  function createBubble() {
-    for (var i = 0; i < 15; i++) { //Sacar 20 Objetos Drop
-      var x = Math.floor(Math.random() * (canvas.width - 10 * 2) + 100);
-      var vy = Math.floor(Math.random() * (7 - 4) + 1);
-      dropArray.push( new RainDrops(x ,vy, i)) //Guardamos los objetos Drop
-    }
-  }
-
-  function animate() {
-    var img = new Image();
-    img.src = './desert.png';
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, 0, 0,700,500);
-    bucket.draw();
-    for (var i = 0; i < dropArray.length; i++) {
-      dropArray[i].drop();
-      dropArray[i].draw();
-      dropArray[i].collision(i);
-      bucket.collision(dropArray[i])
-
-      if(dropArray[i].collision(i)){
-        dropArray.splice(i,1)
+  function createDrops() {
+    var resultPlace = Math.floor(Math.random()*10);
+    for (var i = 0; i < 10; i++) { //Sacar 20 Objetos Drop
+      var vy = Math.random() * (5 - 4.5) + 1;
+      if(i == resultPlace) {
+        newGame.dropArray.push(new RainDrops(i*70,vy,true, newGame.bucketResult)) //Guardamos los objetos Drop
+      } else {
+        newGame.dropArray.push(new RainDrops(i*70,vy,false)) //Guardamos los objetos Drop
       }
     }
-    window.requestAnimationFrame(animate);
   }
 
-
-  function initGame() {
-    createBubble();
-    requestAnimationFrame(animate);
+  function drawBackground() {
+    var img = new Image();
+    img.src = './desert.png';
+    newGame.ctx.drawImage(img, 0, 0,700,500);
   }
-  initGame();
+
+  function clearCanvas() {
+    newGame.ctx.clearRect(0, 0, newGame.canvas.width, newGame.canvas.height);
+  }
+
+  newGame.start();
 });

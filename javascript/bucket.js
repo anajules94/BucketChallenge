@@ -9,6 +9,7 @@ function Bucket(){
   this.limit = 9;
   this.firstNumber = this.getRandomNumber();
   this.sectondNumber = this.getRandomNumber();
+  this.checkIfNegative();
   this.operator = this.getRandomOperator();
   this.answer = this.getBucketAnswer();
   this.question = this.getBucketQuestion();
@@ -18,25 +19,33 @@ function Bucket(){
 
 
 Bucket.prototype.draw = function(){
-  ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-  ctx.font = "20px Calibri";
-  ctx.fillStyle = "black";
-  ctx.textAlign = "center"; // Fill color of rectangle drawn
-  ctx.fillText(this.question, this.x+30, this.y+70);
+  newGame.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+  newGame.ctx.font = "20px Calibri";
+  newGame.ctx.fillStyle = "black";
+  newGame.ctx.textAlign = "center"; // Fill color of rectangle drawn
+  newGame.ctx.fillText(this.question, this.x+30, this.y+70);
 }
 
 Bucket.prototype.moveRigth = function(){
   this.x = this.x + 20;
-  ctx.clearRect(0,0, 700, 500);
+  newGame.ctx.clearRect(0,0, 700, 500);
 }
 
 Bucket.prototype.moveLeft = function(){
   this.x = this.x - 20;
-  ctx.clearRect(0,0, 700, 500);
+  newGame.ctx.clearRect(0,0, 700, 500);
 }
 
 Bucket.prototype.getRandomNumber = function() {
   return Math.floor(Math.random() * this.limit) + 1;
+}
+
+Bucket.prototype.checkIfNegative = function() {
+  if(this.firstNumber < this.sectondNumber) {
+    var aux = this.firstNumber;
+    this.firstNumber = this.sectondNumber;
+    this.sectondNumber = aux;
+  }
 }
 
 Bucket.prototype.getRandomOperator = function() {
@@ -72,7 +81,8 @@ Bucket.prototype.collision = function (rainDrop){
 //Comprobar si ganaste la gota del resultado correcto con el del cubo
 Bucket.prototype.win = function(rainDrop){
   if (rainDrop.value == this.answer) {
-    console.log("ACIERTO");
+    newGame.dropArray = [];
+    newGame.score += 10;
   } else {
     console.log("ERROR");
   }

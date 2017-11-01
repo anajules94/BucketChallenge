@@ -12,15 +12,19 @@
 </head>
 
 <body>
+  <h1>Math Hydration</h1>
   <canvas id="game" width="700" height="500"></canvas>
-
-  <div>Use Keyboard to move bucket</div>
+  <div>
+  <h2 id= "keyInstruction">Use Keyboard to move bucket</h2>
   <br />
-  <button>&larr;</button> Move Left
-  <br />
-  <button>&rarr;</button> Move Right
-
-
+  <button class ="leftButton">&larr;</button> Move Left
+  <br/>
+  <button class ="rightButton">&rarr;</button> Move Right
+  </div>
+  <div>
+    <p>SCORE</p>
+    <p id="score"></p>
+  </div>
 </body>
 <script src="./javascript/game.js"></script>
 
