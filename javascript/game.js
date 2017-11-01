@@ -65,7 +65,7 @@ $(document).ready(function() {
 
   function drawBackground() {
     var img = new Image();
-    img.src = './desert.png';
+    img.src = './images/desert.png';
     newGame.ctx.drawImage(img, 0, 0,700,500);
   }
 

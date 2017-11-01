@@ -5,7 +5,7 @@ function RainDrops(x, vy, flag, bucketResult){
   this.height = 40;
   this.vy = vy;
   this.image = new Image();
-  this.image.src = './Gota.png';
+  this.image.src = './images/Gota.png';
   if (flag) {
     this.value = bucketResult;
   } else {

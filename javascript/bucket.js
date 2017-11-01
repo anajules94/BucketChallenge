@@ -14,7 +14,7 @@ function Bucket(){
   this.answer = this.getBucketAnswer();
   this.question = this.getBucketQuestion();
   this.image = new Image()
-  this.image.src = './greenbucket.png'
+  this.image.src = './images/greenbucket.png'
 }
 
 
