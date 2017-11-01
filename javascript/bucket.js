@@ -70,7 +70,7 @@ Bucket.prototype.getBucketQuestion = function() {
 
 Bucket.prototype.collision = function (rainDrop){
   if((this.x-30) < rainDrop.x && rainDrop.x < (this.x+30)){
-    if (rainDrop.y > 396) {
+    if (rainDrop.y > 380) {
       rainDrop.y = this.height;
       this.win(rainDrop);
       return true;
