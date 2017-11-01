@@ -10,20 +10,19 @@
   <title>Bucket Challenge</title>
   <link rel="stylesheet" href="./styles/main.css">
 </head>
-
 <body>
-  <h1>Math Hydration</h1>
-  <canvas id="game" width="700" height="500"></canvas>
-  <div>
-  <h2 id= "keyInstruction">Use Keyboard to move bucket</h2>
-  <br />
-  <button class ="leftButton">&larr;</button> Move Left
-  <br/>
-  <button class ="rightButton">&rarr;</button> Move Right
-  </div>
-  <div>
+  <div class="game-container">
+    <h1 class= "title">Math Hydration</h1>
+    <div class="canvas-container">
+      <canvas id="game" width="700" height="500"></canvas>
+    </div>
+    <div class= "instruction-container">
+    <p class= "keyInstruction">Use Keyboard to move bucket</p>
+    <button class ="leftButton">&larr;</button> Move Left
+    <button class ="rightButton">&rarr;</button> Move Right
     <p>SCORE</p>
     <p id="score"></p>
+    </div>
   </div>
 </body>
 <script src="./javascript/game.js"></script>

@@ -1,25 +1,42 @@
 body {
   background: #92d3ed;
-  padding-top: 50px;
-
+  padding: 0;
+  margin:0;
+}
+.game-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+.canvas-container {
+  flex-basis:70%;
+  display: flex;
+  justify-content: center;
+  order: 2;
 }
-h1 {
-  margin-left: 530px;
+.instruction-container {
+  flex-basis: 25%;
+  order: 1;
+  padding: 0 35px;
+  border: 1px solid white;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+.title {
+  flex-basis: 100%;
+  text-align: center;
+  color: #33ccff;
+  font-family: serif;
+  font-size: 55px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 h2 {
   font-family: sans-serif;
 }
 
-#keyInstruction {
-  margin-left: 500px;
+.keyInstruction {
+  margin-left: 70px;
   padding-top: 10px;
 }
 
@@ -30,5 +47,8 @@ h2 {
 
 .rightButton {
   margin-left: 50px;
+
+}
+.colorScore {
 
 }
