@@ -10,7 +10,6 @@ function RainDrops(x, vy, value){
 }
 
 RainDrops.prototype.draw = function (){
-  // value of false drops draw here
     ctx.font = "10px Calibri";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
@@ -24,7 +23,6 @@ RainDrops.prototype.drop = function (){
 
 RainDrops.prototype.collision = function(i) {
   if (this.y >= canvas.height) {
-    console.log("Collision RainDrops");
     this.y = canvas.height;
     return true
   }

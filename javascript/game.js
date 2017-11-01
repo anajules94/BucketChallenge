@@ -10,10 +10,8 @@ $(document).ready(function() {
     var keyPr = event.keyCode;
     if (keyPr === 39) {
       bucket.moveRigth();
-      bucket.draw();
     } else if (keyPr === 37) {
       bucket.moveLeft();
-      bucket.draw();
     }
   };
 
@@ -21,7 +19,7 @@ $(document).ready(function() {
   var dropArray = [];
 
   function createBubble() {
-    for (var i = 0; i < 20; i++) { //Sacar 20 Objetos Drop
+    for (var i = 0; i < 15; i++) { //Sacar 20 Objetos Drop
       var x = Math.floor(Math.random() * (canvas.width - 10 * 2) + 100);
       var vy = Math.floor(Math.random() * (7 - 4) + 1);
       dropArray.push( new RainDrops(x ,vy, i)) //Guardamos los objetos Drop
@@ -31,7 +29,6 @@ $(document).ready(function() {
   function animate() {
     var img = new Image();
     img.src = './desert.png';
-    img.onload = function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0,700,500);
     bucket.draw();
@@ -46,18 +43,12 @@ $(document).ready(function() {
       }
     }
     window.requestAnimationFrame(animate);
-    }
   }
 
 
-  function drawBackground(){
-    // var image = source ="./desert.png"; // pintar background
-};
-
   function initGame() {
     createBubble();
-    drawBackground();
-    animate();
+    requestAnimationFrame(animate);
   }
   initGame();
 });
