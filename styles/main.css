@@ -1,12 +1,19 @@
+  /* verde color: #406c2d;*/
+
 body {
   background: #92d3ed;
-  padding: 0;
+  background-image: url(http://www.publicdomainpictures.net/pictures/230000/velka/green-cactus-background-1497541719sTN.jpg);
+  padding-left: 40px;
   margin:0;
 }
 .game-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+canvas {
+  border-radius: 15px;
 }
 
 .canvas-container {
@@ -16,39 +23,70 @@ body {
   order: 2;
 }
 .instruction-container {
+  /*background: #92d3ed;*/
   flex-basis: 25%;
   order: 1;
   padding: 0 35px;
-  border: 1px solid white;
-  border-radius: 25px;
+  background-color: #f55124;
+  border: 2px solid #f55124;
+  border-radius: 15px;
   box-sizing: border-box;
+  justify-content: center;
+  color: white;
+  /*font-family: 'Oswald', sans-serif;*/
+    font-family: 'Permanent Marker', cursive;
 }
 .title {
   flex-basis: 100%;
   text-align: center;
-  color: #33ccff;
-  font-family: serif;
-  font-size: 55px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 70px;
+  color: #f55124;
+  /*font-family: 'Oswald', sans-serif;*/
+  font-family: 'Permanent Marker', cursive;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
-h2 {
-  font-family: sans-serif;
+
+.instruction-title {
+  font-family: 'Permanent Marker', cursive;
+  margin-left: 40px;
+  /*color: #406c2d;*/
+  color: white;
 }
 
 .keyInstruction {
-  margin-left: 70px;
-  padding-top: 10px;
+  margin-left: 40px;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .leftButton {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
   margin-left: 50px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .rightButton {
   margin-left: 50px;
-
+  font-family: 'Permanent Marker', cursive;
 }
-.colorScore {
-
+.Instruction-comment {
+  padding-left: 10px;
+  font-size: 13px;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
 }
+#startButton {
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+/*.score-box {
+  border: 2px solid white;
+  width: 80px;
+  height: 70px;
+  border-radius: 10px;
+}*/

@@ -7,6 +7,7 @@ function Bucket(){
   this.vx = 10;
   this.vy = 10;
   this.limit = 9;
+  this.error = 0;
   this.firstNumber = this.getRandomNumber();
   this.sectondNumber = this.getRandomNumber();
   this.checkIfNegative();
@@ -21,18 +22,24 @@ function Bucket(){
 Bucket.prototype.draw = function(){
   newGame.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   newGame.ctx.font = "20px Calibri";
-  newGame.ctx.fillStyle = "black";
+  newGame.ctx.fillStyle = "white";
   newGame.ctx.textAlign = "center"; // Fill color of rectangle drawn
   newGame.ctx.fillText(this.question, this.x+30, this.y+70);
 }
 
 Bucket.prototype.moveRigth = function(){
   this.x = this.x + 20;
+  if(this.x > 710){
+    this.x = 0;
+  }
   newGame.ctx.clearRect(0,0, 700, 500);
 }
 
 Bucket.prototype.moveLeft = function(){
   this.x = this.x - 20;
+  if(this.x < -10){
+    this.x = 700;
+  }
   newGame.ctx.clearRect(0,0, 700, 500);
 }
 
@@ -84,6 +91,6 @@ Bucket.prototype.win = function(rainDrop){
     newGame.dropArray = [];
     newGame.score += 10;
   } else {
-    console.log("ERROR");
+    newGame.lives -=1;
   }
 };

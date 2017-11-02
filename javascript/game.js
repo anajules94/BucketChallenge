@@ -20,6 +20,7 @@ $(document).ready(function() {
     },
     update: function() {
       clearCanvas();
+      endGame();
       drawBackground();
       newGame.bucket.draw();
       for (var i = 0; i < newGame.dropArray.length; i++) {
@@ -39,7 +40,8 @@ $(document).ready(function() {
     score: 0,
     printScore: function() {
       document.getElementById('score').innerHTML = newGame.score
-    }
+    },
+    lives: 3
   }
 
   window.onkeydown = function(event) {
@@ -54,7 +56,7 @@ $(document).ready(function() {
   function createDrops() {
     var resultPlace = Math.floor(Math.random()*10);
     for (var i = 0; i < 10; i++) { //Sacar 20 Objetos Drop
-      var vy = Math.random() * (5 - 4.5) + 1;
+      var vy = Math.random() * (5 - 4.8) + 1;
       if(i == resultPlace) {
         newGame.dropArray.push(new RainDrops(i*70,vy,true, newGame.bucketResult)) //Guardamos los objetos Drop
       } else {
@@ -65,7 +67,7 @@ $(document).ready(function() {
 
   function drawBackground() {
     var img = new Image();
-    img.src = './images/desert.png';
+    img.src = './images/desert_hot.gif';
     newGame.ctx.drawImage(img, 0, 0,700,500);
   }
 
@@ -73,5 +75,14 @@ $(document).ready(function() {
     newGame.ctx.clearRect(0, 0, newGame.canvas.width, newGame.canvas.height);
   }
 
+  function endGame(){
+    console.log("ENTRO ");
+    if (newGame.error == 3){
+        console.log("YOU LOOSE")
+    }
+  }
+
+document.getElementById("startButton").onclick = function (){
   newGame.start();
+}
 });

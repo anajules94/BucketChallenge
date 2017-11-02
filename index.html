@@ -9,6 +9,10 @@
   <script src="./javascript/raindrops.js"></script>
   <title>Bucket Challenge</title>
   <link rel="stylesheet" href="./styles/main.css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Chango" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Acme|Chango|Permanent+Marker" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Acme|Chango|Oswald|Permanent+Marker" rel="stylesheet">
+
 </head>
 <body>
   <div class="game-container">
@@ -17,11 +21,20 @@
       <canvas id="game" width="700" height="500"></canvas>
     </div>
     <div class= "instruction-container">
+      <h2 class ="instruction-title"> <u>Instructions</u></h2>
+        <p class = "Instruction-comment"> It is very important to be hydrated! Especially in the desert.</p>
+      <p class = "Instruction-comment">Cacth the drop with the answer corresponding to the  math operation that the bucket request</p>
     <p class= "keyInstruction">Use Keyboard to move bucket</p>
     <button class ="leftButton">&larr;</button> Move Left
+    <br>
     <button class ="rightButton">&rarr;</button> Move Right
-    <p>SCORE</p>
-    <p id="score"></p>
+    <div class="score-box">
+      <p >SCORE</p>
+      <p id="score"></p>
+      <p>LIVES</p>
+      <p id="lives"></p>
+    </div>
+    <div id= "startButton">Start Game</div>
     </div>
   </div>
 </body>

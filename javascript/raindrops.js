@@ -28,10 +28,11 @@ RainDrops.prototype.drop = function (){
 RainDrops.prototype.collision = function(i) {
   if (this.y >= newGame.canvas.height) {
     this.y = newGame.canvas.height;
+    
     return true
   }
 }
 
 RainDrops.prototype.getRandomValue = function() {
-  return Math.floor(Math.random()*100);
+  return Math.floor(Math.random()*30);
 }
