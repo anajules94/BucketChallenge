@@ -88,13 +88,9 @@ Bucket.prototype.collision = function (rainDrop){
 //Comprobar si ganaste la gota del resultado correcto con el del cubo
 Bucket.prototype.win = function(rainDrop){
   if (rainDrop.value == this.answer) {
-    newGame.dropArray = [];
     newGame.score += 10;
+  } else {
+    newGame.lives--;
   }
-  if (newGame.lives > 0) {
-      newGame.lives--;
-  }
-  if (newGame.lives = 0) {
-      newgame.lives = "MUERTO"
-  }
+  newGame.dropArray = [];
 };

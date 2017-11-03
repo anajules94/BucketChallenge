@@ -8,13 +8,17 @@
   <script src="./javascript/bucket.js"></script>
   <script src="./javascript/raindrops.js"></script>
   <title>Bucket Challenge</title>
-    <link rel="stylesheet" href="./portada/cover.css">
+  <link rel="stylesheet" href="./styles/cover.css">
   <link rel="stylesheet" href="./styles/main.css">
   <link href="https://fonts.googleapis.com/css?family=Acme|Chango|Oswald|Permanent+Marker" rel="stylesheet">
 
 </head>
 
 <body>
+  <div class="portada">
+    <h1 class = "cover-title">Math <br>Hydration!</h1>
+    <button id="button-decor">PLAY</button>
+  </div>
   <div class="game-container">
     <h1 class="title">Math Hydration</h1>
     <div class="canvas-container">
@@ -36,6 +40,9 @@
 
       <div class= "offset" id="startButton">Start Game</div>
     </div>
+  </div>
+  <div class="game-over">
+    <img src="./images/gameover.png" alt="">
   </div>
 </body>
 <script src="./javascript/game.js"></script>

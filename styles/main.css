@@ -5,10 +5,34 @@ body {
   padding-left: 40px;
   margin:0;
 }
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+html {
+  overflow: hidden;
+}
+
 .game-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+.background-darker {
+  width:100%;
+  height: 100%;
+  height: 807.38px;
+  background-color: black;
+  opacity: .5;
 }
 
 canvas {
@@ -39,22 +63,13 @@ canvas {
    background: linear-gradient(#d52a2d, #f55124);
 }
 .title {
+  color: #d52a2d;
   flex-basis: 100%;
   text-align: center;
   font-size: 110px;
-  color: #f55124;
-  /*font-family: 'Oswald', sans-serif;*/
   font-family: 'Permanent Marker', cursive;
-  /*text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;*/
-  color: #F2F5FE;
-  text-decoration-style: wavy;
-   /*3px dashed #F2F5FE;*/
-  line-height: 1;
-  background: -webkit-linear-gradient(transparent, transparent), url(http://goldwallpapers.com/uploads/posts/water-drops-background/water_drops_background_014.jpg) repeat;
-  background-size: 200px auto;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  animation: background 10s infinite linear;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  margin: 2vh 0;
 }
 
 .instruction-title {
@@ -137,4 +152,26 @@ canvas {
 }
 #lives {
   font-size: 15px;
+}
+
+.game-over {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  z-index: 5 ;
+}
+
+.game-over img {
+  position: absolute;
+  margin: auto;
+  width: 80%;
+  box-sizing: border-box;
+
 }

@@ -11,6 +11,7 @@ document.getElementById("button-decor");
     start: function() {
       this.canvas = document.getElementById('game');
       this.ctx = this.canvas.getContext('2d');
+      document.getElementsByClassName('game-over')[0].style.display = 'none';
       drawBackground();
       this.bucket = new Bucket();
       this.bucketResult = this.bucket.answer;
@@ -22,7 +23,6 @@ document.getElementById("button-decor");
     },
     update: function() {
       clearCanvas();
-      endGame();
       drawBackground();
       newGame.bucket.draw();
       for (var i = 0; i < newGame.dropArray.length; i++) {
@@ -38,6 +38,10 @@ document.getElementById("button-decor");
       } else {
         newGame.requestAnimation = requestAnimationFrame(newGame.update);
       }
+      if (newGame.checkIfLost()) {
+        cancelAnimationFrame(newGame.requestAnimation);
+        document.getElementsByClassName('game-over')[0].style.display = 'flex';
+      };
     },
     score: 0,
     printScore: function() {
@@ -46,6 +50,11 @@ document.getElementById("button-decor");
     lives: 3,
     printLives : function () {
       document.getElementById('lives').innerHTML = newGame.lives
+    },
+    checkIfLost: function() {
+      if (newGame.lives == 0){
+          return true;
+      }
     }
   }
 
@@ -80,12 +89,9 @@ document.getElementById("button-decor");
     newGame.ctx.clearRect(0, 0, newGame.canvas.width, newGame.canvas.height);
   }
 
-  function endGame(){
-    console.log("ENTRO ");
-    if (newGame.error == 3){
-        console.log("YOU LOOSE")
-    }
-  }
+document.getElementById("button-decor").onclick = function (){
+  document.getElementsByClassName('portada')[0].style.display = 'none';
+}
 
 document.getElementById("startButton").onclick = function (){
   newGame.start();
