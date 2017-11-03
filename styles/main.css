@@ -1,7 +1,6 @@
   /* verde color: #406c2d;*/
 
 body {
-  background: #92d3ed;
   background-image: url(http://www.publicdomainpictures.net/pictures/230000/velka/green-cactus-background-1497541719sTN.jpg);
   padding-left: 40px;
   margin:0;
@@ -26,51 +25,75 @@ canvas {
   /*background: #92d3ed;*/
   flex-basis: 25%;
   order: 1;
-  padding: 0 35px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 10px;
   background-color: #f55124;
   border: 2px solid #f55124;
   border-radius: 15px;
   box-sizing: border-box;
   justify-content: center;
   color: white;
-  /*font-family: 'Oswald', sans-serif;*/
+  /*box-shadow: 10px 10px 5px #d52a2d;*/
     font-family: 'Permanent Marker', cursive;
+   background: linear-gradient(#d52a2d, #f55124);
 }
 .title {
   flex-basis: 100%;
   text-align: center;
-  font-size: 70px;
+  font-size: 110px;
   color: #f55124;
   /*font-family: 'Oswald', sans-serif;*/
   font-family: 'Permanent Marker', cursive;
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  /*text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;*/
+  color: #F2F5FE;
+  text-decoration-style: wavy;
+   /*3px dashed #F2F5FE;*/
+  line-height: 1;
+  background: -webkit-linear-gradient(transparent, transparent), url(http://goldwallpapers.com/uploads/posts/water-drops-background/water_drops_background_014.jpg) repeat;
+  background-size: 200px auto;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: background 10s infinite linear;
 }
 
 .instruction-title {
   font-family: 'Permanent Marker', cursive;
-  margin-left: 40px;
+  margin-left: 60px;
   /*color: #406c2d;*/
   color: white;
 }
 
 .keyInstruction {
-  margin-left: 40px;
+  margin-left: 30px;
   color: white;
   font-family: 'Permanent Marker', cursive;
 }
 
 .leftButton {
   /*margin-top: 20px;*/
-  margin-left: 50px;
+  color: white;
+  margin-left: 100px;
   font-family: 'Permanent Marker', cursive;
+  font-size: 15px;
+  background-color: #d52a2d;
+  border: 2px solid white;
+  border-radius: 10px;
+  border-color: #d52a2d;
 }
 
 .rightButton {
-  margin-left: 50px;
+  /*margin-left: 30px;*/
+  color: white;
   font-family: 'Permanent Marker', cursive;
+  font-size: 15px;
+  background-color: #d52a2d;
+  border: 2px solid white;
+  border-radius: 10px;
+  border-color: #d52a2d;
 }
 .Instruction-comment {
-  padding-left: 10px;
+  padding-left: 8px;
   font-size: 13px;
   color: white;
   font-family: 'Permanent Marker', cursive;
@@ -81,12 +104,37 @@ canvas {
   padding-right: 10px;
   padding-top: 7px;
   padding-bottom: 7px;
-  border: 2px solid white;
+  border: 3px solid #d52a2d;
   border-radius: 10px;
+  /*background-color: #f55124;*/
+  background-color: #d52a2d;
+}
+.offset {
+  box-shadow:
+    0.3em 0.3em 0 0 var(--color),
+    inset 0.3em 0.3em 0 0 var(--color);
+
+  &:hover,
+  &:focus {
+    box-shadow:
+      0 0 0 0 var(--hover),
+      inset 6em 3.5em 0 0 var(--hover);
+  }
 }
 /*.score-box {
-  border: 2px solid white;
-  width: 80px;
-  height: 70px;
+  border: 2px solid #d52a2d;;
   border-radius: 10px;
+  padding-left: 20px;
+  width: 107px;
+  height: 160px;
 }*/
+.lives-box {
+  font-size: px;
+  color: white;
+}
+#score {
+  font-size: 15px;
+}
+#lives {
+  font-size: 15px;
+}

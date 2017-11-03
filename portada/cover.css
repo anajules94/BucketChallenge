@@ -1,0 +1,47 @@
+
+body {
+  margin: 0;
+  background-size: cover;
+  /*background-image: url(http://www.set4life.org.au/wp-content/uploads/H2o-Water-Drops-On-Blue-Background.jpg);*/
+  background-image: url(https://images.fineartamerica.com/images-medium-large-5/moroccan-desert-landscape-with-orange-sky-dunes-background-bijan-habashi.jpg);
+}
+@keyframes background {
+  from {
+    background-position: 0 0%;
+  }
+  to {
+    background-position: 0 -200px;
+  }
+}
+h1 {
+  color: #F2F5FE;
+  text-decoration-style: wavy;
+   /*3px dashed #F2F5FE;*/
+  text-align: center;
+  font-size: 200px;
+  line-height: 1;
+  font-family: 'Permanent Marker', cursive;
+  background: -webkit-linear-gradient(transparent, transparent), url(http://goldwallpapers.com/uploads/posts/water-drops-background/water_drops_background_014.jpg) repeat;
+  background-size: 200px auto;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: background 10s infinite linear;
+}
+#button-decor {
+  /*background-color: #0f67dc;*/
+  /*color: #094690;*/
+  color: white;
+  font-size: 30px;
+  font-family: 'Permanent Marker';
+  /*background-color:#ccefff;*/
+  background-color: #d52a2d;
+  border-radius: 20px;
+  width: 200px;
+  height: 70px;
+  padding: 10px;
+  margin-bottom: 200px;
+  margin-left: 500px;
+  text-align: center;
+  /*border: 3px solid #094690;*/
+  border: 3px solid #d52a2d;
+}

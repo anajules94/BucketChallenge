@@ -90,7 +90,11 @@ Bucket.prototype.win = function(rainDrop){
   if (rainDrop.value == this.answer) {
     newGame.dropArray = [];
     newGame.score += 10;
-  } else {
-    newGame.lives -=1;
+  }
+  if (newGame.lives > 0) {
+      newGame.lives--;
+  }
+  if (newGame.lives = 0) {
+      newgame.lives = "MUERTO"
   }
 };

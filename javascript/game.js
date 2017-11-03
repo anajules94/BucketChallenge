@@ -1,8 +1,9 @@
 
 
+
 $(document).ready(function() {
 
-
+document.getElementById("button-decor");
 
   // bucket.draw();
 
@@ -16,6 +17,7 @@ $(document).ready(function() {
       this.dropArray = [];
       createDrops();
       newGame.printScore();
+      newGame.printLives();
       this.requestAnimation = requestAnimationFrame(this.update);
     },
     update: function() {
@@ -41,7 +43,10 @@ $(document).ready(function() {
     printScore: function() {
       document.getElementById('score').innerHTML = newGame.score
     },
-    lives: 3
+    lives: 3,
+    printLives : function () {
+      document.getElementById('lives').innerHTML = newGame.lives
+    }
   }
 
   window.onkeydown = function(event) {
@@ -55,12 +60,12 @@ $(document).ready(function() {
 
   function createDrops() {
     var resultPlace = Math.floor(Math.random()*10);
-    for (var i = 0; i < 10; i++) { //Sacar 20 Objetos Drop
+    for (var i = 0; i < 10; i++) {
       var vy = Math.random() * (5 - 4.8) + 1;
       if(i == resultPlace) {
-        newGame.dropArray.push(new RainDrops(i*70,vy,true, newGame.bucketResult)) //Guardamos los objetos Drop
+        newGame.dropArray.push(new RainDrops(i*70,vy,true,newGame.bucketResult))
       } else {
-        newGame.dropArray.push(new RainDrops(i*70,vy,false)) //Guardamos los objetos Drop
+        newGame.dropArray.push(new RainDrops(i*70,vy,false))
       }
     }
   }
